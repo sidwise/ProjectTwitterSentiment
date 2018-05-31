@@ -76,7 +76,14 @@
 	  <span class="sr-only">Suivant</span>
 	</a>
       </div>
+      <div class="container">
+        <ul>
+          {% for tweet in tweets %}
+          <li>{{ tweet.text }}</li>
+          {% endfor %}
+        </ul>
 
+      </div>
       <!--**************************************************footer**********************************************-->
 
       <div class="container">
