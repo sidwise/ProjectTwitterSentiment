@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_neomodel',
     'TwitterCoreSA',
 ]
 
@@ -80,6 +81,14 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# NEOMODEL_NEO4J_BOLT_URL = os.environ.get(
+#     'NEO4J_BOLT_URL', 'bolt://neo4j:test@localhost:7687')
+
+NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:123@localhost:7687'
+NEOMODEL_SIGNALS = True
+NEOMODEL_FORCE_TIMEZONE = False
+NEOMODEL_ENCRYPTED_CONNECTION = True
+NEOMODEL_MAX_POOL_SIZE = 50
 
 NEO4J_DATABASES = {
     'default': {
