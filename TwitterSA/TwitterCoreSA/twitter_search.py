@@ -8,6 +8,7 @@ from py2neo.ogm import GraphObject, Property, RelatedTo
 from sentimentDic import sentiment_tweet
 import preprocessor as p
 import logging
+import datetime
 # nltk.download('stopwords')
 # nltk.download('wordnet')
 
@@ -100,8 +101,8 @@ def TwitterSearch(query, count):
                 oauth_token=TWITTER_ACCESS_TOKEN,
                 oauth_token_secret=TWITTER_ACCESS_TOKEN_SECRET)
 
-    search = t.cursor(t.search, q='#java',
-                      count=100, lang='en')
+    search = t.cursor(t.search, q=query,
+                      count=count, lang='en')
 
     # count = 3
     graph = Graph("http://localhost:7474/db/data/")
