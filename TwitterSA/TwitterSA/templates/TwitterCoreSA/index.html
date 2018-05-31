@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html>
+  <head>
+    <title> Twitter </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'bootstrap.min.js' %}" ></script>
+
+  </head>
+  <body>
+
+    <!--************************************* NAVBAR*****************************************************-->
+    <div class="container">
+      <nav class="navbar navbar-light "   style=" ">
+	<div class="navbar-header">
+	  <p class="navbar-brand"> <strong> Sentiment Analysis</strong></p>
+	</div>
+	<ul class="nav navbar-nav collapse navbar-collapse">
+	  <li class="nav-item active">  <a class="nav-link" href="">Accueil</a> </li>
+	  <li class="nav-item">  <a class="nav-link" href="recherche">Recherche</a> </li>
+	  <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li>
+	  <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li>
+	  <li class="nav-item">  <a class="nav-link" href="#">Tableau de Bord</a> </li>
+	</ul>
+      </nav>
+
+
+      <!--*************************************CAROUSEL*****************************************************-->
+      <div id="carousel-appdev" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ul class="carousel-indicators">
+	  <li data-target="#carousel-appdev" data-slide-to="0" class="active"></li>
+	  <li data-target="#carousel-appdev" data-slide-to="1"></li>
+	  <li data-target="#carousel-appdev" data-slide-to="2"></li>
+	  <li data-target="#carousel-appdev" data-slide-to="3"></li>
+	  <li data-target="#carousel-appdev" data-slide-to="4"></li>
+	</ul>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+
+	  <div class="item active">
+	    <img src="{% static 'img/1.jpg' %}" >
+	  </div>
+
+	  <div class="item">
+	    <img src="{% static 'img/2.jpg' %}" >
+	  </div>
+
+	  <div class="item">
+	    <img src="{% static 'img/3.jpg' %}" >
+	  </div>
+
+	  <div class="item">
+	    <img src="{% static 'img/4.jpg' %}">
+	  </div>
+
+	  <div class="item">
+	    <img src="{% static 'img/5.jpg' %}">
+	  </div>
+
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carousel-appdev" role="button" data-slide="prev">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	  <span class="sr-only">Précédent</span>
+	</a>
+
+	<a class="right carousel-control" href="#carousel-appdev" role="button" data-slide="next">
+	  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	  <span class="sr-only">Suivant</span>
+	</a>
+      </div>
+
+      <!--**************************************************footer**********************************************-->
+
+      <div class="container">
+	<nav class="navbar navbar-light navbar-fixed-bottom container">
+	  <div class="container">
+	    <p> Copyright &copy; 2018 </p>
+	  </div>
+	</nav>
+      </div>
+
+  </body>
+</html>
