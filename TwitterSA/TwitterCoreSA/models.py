@@ -4,6 +4,7 @@ from django.db import models
 from django_neomodel import DjangoNode
 from neomodel import StructuredNode, StringProperty, DateProperty, IntegerProperty, FloatProperty, Relationship
 from . import twitter_search
+from TwitterCoreSA.tasks import TwitterSearch
 # Create your models here.
 
 
@@ -16,11 +17,11 @@ class Search(models.Model):
         return self.title
 
     def run_search(self):
-        twitter_search.TwitterSearch(self.search_query, self.tweet_number)
+        TwitterSearch.delay(self.search_query, self.tweet_number)
 
 
 class TweetSAAnalytics(models.Model):
-    search = models.ForeignKey(Search, on_delete=models.CASCADE)
+    # search = models.ForeignKey(Search, on_delete=models.CASCADE)
     title = models.CharField(name="Titre", max_length=40)
     number_positive_tweets = models.IntegerField(name="Positive Tweets")
     number_negative_tweets = models.IntegerField(name="Negative Tweets")
