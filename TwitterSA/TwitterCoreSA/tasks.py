@@ -6,7 +6,7 @@ from celery import shared_task
 
 import time
 import preprocess as pre
-from twython import Twython, TwythonRateLimitError
+from twython import Twython, TwythonRateLimitError, TwythonError
 from py2neo import authenticate, Graph  # , Node,  Relationship
 from py2neo.ogm import GraphObject, Property, RelatedTo
 from sentimentDic import sentiment_tweet
@@ -117,9 +117,10 @@ def TwitterSearch(query, count):
     i = 0
     for tweet in search:
         try:
+            if i > count:
+                logger.info(i)
+                return True
             i += 1
-            print i
-            logger.info(i)
             t1 = Tweet()
             u = User()
             t1.id_str = tweet['id_str']
@@ -173,7 +174,6 @@ def TwitterSearch(query, count):
 
                 graph.push(u)
 
-            mentions = []
             for user_t in tweet['entities']['user_mentions']:
                 if tweet['user']['screen_name'] != user_t['screen_name']:
                     user = t.show_user(screen_name=user_t['screen_name'])
@@ -225,7 +225,7 @@ def TwitterSearch(query, count):
 
             # if i==count:
             #     pass
-        except TwythonRateLimitError:
+        except (TwythonRateLimitError, TwythonError), e:
             remainder = float(t.get_lastfunction_header(
                 header='x-rate-limit-reset')) - time.time()
             t.disconnect()
