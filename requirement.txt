@@ -4,3 +4,7 @@ py2neo
 nltk
 tweet-preprocessor
 django_neomodel
+celery
+redis
+django-celery-beat
+django-celery-results
