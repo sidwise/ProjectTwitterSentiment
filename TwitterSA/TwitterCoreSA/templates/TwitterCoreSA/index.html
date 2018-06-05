@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load shuffle %}
 <html>
   <head>
     <title> Twitter </title>
@@ -9,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href=" {% static 'TwitterCoreSA/css/style.css' %}">
     <script type="text/javascript" src="{% static 'TwitterCoreSA/js/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src=" {% static 'TwitterCoreSA/js/bootstrap.min.js' %}" ></script>
-
+    <script type="text/javascript" src="{% static 'TwitterCoreSA/js/d3.js' %}" charset="utf-8"></script>
+    <script type="text/javascript" src=" {% static 'TwitterCoreSA/js/d3.layout.cloud.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'TwitterCoreSA/js/d3.wordcloud.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TwitterCoreSA/js/he.js' %}"></script>
   </head>
   <body>
 
@@ -22,8 +26,8 @@
 	<ul class="nav navbar-nav collapse navbar-collapse">
 	  <li class="nav-item active">  <a class="nav-link" href="">Accueil</a> </li>
 	  <li class="nav-item">  <a class="nav-link" href="recherche">Recherche</a> </li>
-	  <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li>
-	  <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li>
+	  <!-- <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li> -->
+	  <!-- <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li> -->
 	  <li class="nav-item">  <a class="nav-link" href="#">Tableau de Bord</a> </li>
 	</ul>
       </nav>
@@ -76,14 +80,24 @@
 	  <span class="sr-only">Suivant</span>
 	</a>
       </div>
-      <div class="container">
-        <ul>
-          {% for tweet in tweets %}
-          <li>{{ tweet.text }}</li>
-          {% endfor %}
-        </ul>
+      <div id="wordcloud"></div>
+      <p>This is a word cloud of the first two chapters of Oliver Twist. Some words are clickable.</p>
+      <p><a href="https://github.com/wvengen/d3-wordcloud">https://github.com/wvengen/d3-wordcloud</a></p>
 
-      </div>
+      <script>
+	var var1 = he.decode('{{ tweets }}');
+	var2 = $.parseJSON(var1);
+	var map = new Map(JSON.parse(var1))
+	d3.wordcloud()
+        .size([800, 500])
+        .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+        .words(var2)
+        .onwordclick(function(d, i) {
+        if (d.href) { window.location = d.href; }
+        })
+        .start();
+      </script>
+
       <!--**************************************************footer**********************************************-->
 
       <div class="container">

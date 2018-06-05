@@ -11,6 +11,20 @@
     <script type="text/javascript" src=" {% static 'TwitterCoreSA/js/bootstrap.min.js' %}" ></script>
   </head>
   <body class="rech">
+    <div class="container">
+      <nav class="navbar navbar-light "   style=" ">
+	<div class="navbar-header">
+	  <p class="navbar-brand"> <strong> Sentiment Analysis</strong></p>
+	</div>
+	<ul class="nav navbar-nav collapse navbar-collapse">
+	  <li class="nav-item active">  <a class="nav-link" href="">Accueil</a> </li>
+	  <li class="nav-item">  <a class="nav-link" href="recherche">Recherche</a> </li>
+	  <!-- <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li> -->
+	  <!-- <li class="nav-item">  <a class="nav-link" href="#">Tweet</a> </li> -->
+	  <li class="nav-item">  <a class="nav-link" href="#">Tableau de Bord</a> </li>
+	</ul>
+      </nav>
+      </div>
     <div class="containe-fluid">
       <h1> Recherche des tweets:</h1>
       <form class="form" action="" method="post">
@@ -25,7 +39,7 @@
 	</div>
 	<input type="submit"  class="lab btn" name="submit_but"></input>
 	<input type="reset" class="lab btn">
-	<a href="index.html" class="btn btn-default"> <span class="glyphicon glyphicon-hand-left"> </span> </a>
+	<a href="/SA" class="btn btn-default"> <span class="glyphicon glyphicon-hand-left"> </span> </a>
       </form>
     </div>
   </body>
