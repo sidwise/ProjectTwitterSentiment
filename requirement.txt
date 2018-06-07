@@ -8,3 +8,5 @@ celery
 redis
 django-celery-beat
 django-celery-results
+mpld3
+jinja2
