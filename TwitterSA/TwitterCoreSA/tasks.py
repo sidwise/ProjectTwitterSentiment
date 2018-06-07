@@ -2,14 +2,14 @@
 import logging
 # from django.urls import reverse
 from TwitterSA.celery import app
-from celery import shared_task
+# from celery import shared_task
 
 import time
 import preprocess as pre
 from twython import Twython, TwythonRateLimitError, TwythonError
 from py2neo import authenticate, Graph  # , Node,  Relationship
 from py2neo.ogm import GraphObject, Property, RelatedTo
-from sentimentDic import sentiment_tweet
+from sentimentDic import sentiment_tweet, get_Anew
 import preprocessor as p
 # import logging
 # import datetime
@@ -113,7 +113,7 @@ def TwitterSearch(query, count):
     graph = Graph("http://localhost:7474/db/data/")
     p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY,
                   p.OPT.MENTION, p.OPT.NUMBER)
-
+    anew = get_Anew()
     i = 0
     for tweet in search:
         try:
@@ -129,10 +129,19 @@ def TwitterSearch(query, count):
             t1.favorite_count = tweet['favorite_count']
             t1.created_at = tweet['created_at']
 
-            t1.lemm = pre.preprocess_tweet(tweet['text'])
-            # print t1.lemm
-            sentiment_tweet(t1.lemm)
+            l1, l = pre.preprocess_tweet(tweet['text'])
+            logger.error("========================")
+            logger.error(l)
+            t1.lemm = l1
+            sentiment, emotion = sentiment_tweet(l, anew)
+            logger.error("========================")
+            logger.error(sentiment)
 
+            if sentiment:
+                t1.valence = sentiment[0]
+                t1.arousal = sentiment[1]
+            if emotion:
+                t1.emotion = emotion
             for source in tweet['source']:
                 s = Source()
                 s.name = tweet['source']
@@ -202,7 +211,15 @@ def TwitterSearch(query, count):
                 t2.retweet_count = status['retweet_count']
                 t2.favorite_count = status['favorite_count']
                 t2.created_at = status['created_at']
-                t2.lemm = pre.preprocess_tweet(tweet['text'])
+                l1, l = pre.preprocess_tweet(tweet['text'])
+                t2.lemm = l1
+                sentiment, emotion = sentiment_tweet(l, anew)
+
+                if sentiment:
+                    t1.valence = sentiment[0]
+                    t1.arousal = sentiment[1]
+                if emotion:
+                    t1.emotion = emotion
                 # t2.RETWEETS.add(t1)
                 t1.REPLY_TO.add(t2)
                 graph.push(t2)
@@ -228,7 +245,8 @@ def TwitterSearch(query, count):
         except (TwythonRateLimitError, TwythonError), e:
             remainder = float(t.get_lastfunction_header(
                 header='x-rate-limit-reset')) - time.time()
-            t.disconnect()
+            # t.disconnect()
+
             time.sleep(remainder)
             t = Twython(app_key=TWITTER_APP_KEY,
                         app_secret=TWITTER_APP_KEY_SECRET,

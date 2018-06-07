@@ -79,5 +79,4 @@ def preprocess_tweet(tweet):
     # words = tweet.split()
 
     processed_tweet = TweetLemm(tweet)
-    print processed_tweet
-    return ' '.join(processed_tweet)
+    return ' '.join(processed_tweet), processed_tweet
