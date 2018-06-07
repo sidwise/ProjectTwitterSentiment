@@ -1,2 +1,5 @@
 *.pyc
+^db.+$
 twitter_sa/
+redis-stable.tar.gz
+redis-stable/
