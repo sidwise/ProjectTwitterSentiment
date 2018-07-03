@@ -1,0 +1,129 @@
+.navbar{
+	background-color: #009AC8;
+	margin-bottom: 10px;
+}
+
+.navbar-nav{
+	float:none;
+	text-align: center;
+	
+
+}
+.navbar-nav li{
+	display: inline-block;
+	float: none;
+	
+}
+
+.navbar-brand{
+	text-decoration: none;  
+	color: #ffffff;
+	font-family: "Times New Roman";
+	font-size: large;
+	font-style: italic;
+}
+
+
+.nav-link{ 
+	text-decoration: none;  
+	color: #ffffff;
+	font-family: "Times New Roman";
+	font-size: large;
+	font-style: italic;
+} 
+
+.carousel{
+	margin-bottom: 10px;
+}
+
+.thumb{
+	margin-left: 200px;
+}
+
+.row{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.para{
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	font-family: "Times New Roman" , Times, serif;;
+	font-size: large;
+	font-style: italic;
+	color: #009AC8;
+	text-transform: capitalize;
+	word-spacing: 3px;
+	font-size: 25px;
+	font-weight: bold;
+	
+
+	}
+
+.foo{
+
+	background-color: #009AC8;
+	float:none;
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: large;
+	font-style: italic;
+	color: #ffffff;
+}
+
+.foo p{
+	margin-top: 10px;
+
+}
+
+.form{
+	margin-top: 50px;
+	margin-right: 500px;
+	margin-left: 500px;
+	
+}
+
+
+.rech{
+	background-color:#F2F2F2;
+}
+
+.lab{
+	color: #009AC8 ;
+	font-family: "Times New Roman";
+	font-size: large;
+	font-style: italic;
+	
+}
+
+.btn{
+	margin-left: 50px;
+	border: 2px solid #009AC8;
+    border-radius: 5px;
+    margin-top: 10px;
+
+
+}
+
+.form-control{
+	border: 2px solid #009AC8;
+    border-radius: 5px;
+
+
+}
+
+.btn-default{
+	margin-top: 180px;
+	margin-left: 700px
+}
+
+
+h1{
+	color: #009AC8 ;
+	font-family: "Times New Roman";
+	font-style: italic;
+	margin-top: 100px;
+	margin-right: px;
+	margin-left:500px;
+}

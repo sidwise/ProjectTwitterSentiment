@@ -1,98 +1,161 @@
 .navbar{
-    background-color: #009AC8;
+background-color: #009AC8;
+margin-bottom: 10px;
 }
 
 .navbar-nav{
-    float:none;
-    text-align: center;
-
-
+float:none;
+text-align: center;
 }
-.navbar-nav li{
-    display: inline-block;
-    float: none;
 
+.navbar-nav li{
+display: inline-block;
+float: none;
 }
 
 .navbar-brand{
-    text-decoration: none;
-    color: #ffffff;
-    font-family: "Times New Roman";
-    font-size: large;
-    font-style: italic;
+text-decoration: none;
+color: #ffffff;
+font-family: "Times New Roman";
+font-size: large;
+font-style: italic;
 }
-
 
 .nav-link{
-    text-decoration: none;
-    color: #ffffff;
-    font-family: "Times New Roman";
-    font-size: large;
-    font-style: italic;
+text-decoration: none;
+color: #ffffff;
+font-family: "Times New Roman";
+font-size: large;
+font-style: italic;
 }
 
-.navbar-fixed-bottom{
 
-    background-color: #009AC8;
-    float:none;
-    text-align: center;
-    font-family: "Times New Roman";
-    font-size: large;
-    font-style: italic;
-    color: #ffffff;
+.thumb{
+margin-left: 50px;
+
 }
 
-.navbar-fixed-bottom p{
-    margin-top: 10px;
+.row{
+width: 1000px;
+margin:auto;
 }
+
+
+.thumbnail{
+width: 200px;
+height: 200px;
+border-radius: 20px;
+    box-shadow: 5px 5px #D8D8D8;
+}
+
+
+.divimg{
+width: 1000px;
+margin:auto;
+margin-top: 20px;
+margin-bottom: 20px;
+background:#EFF2FB;
+box-shadow: 5px 5px #D8D8D8;
+border-radius: 7px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 10px;
+padding-left: 10px;
+
+}
+
+.divimg img{
+margin-right: 20px;
+margin-bottom: 20px;
+border-radius: 10px;
+padding: 5px;
+}
+
+.divimg p{
+font-family: "Times New Roman" , Times, serif;;
+font-size: large;
+font-style: italic;
+color: #585858;
+font-weight: bold;
+}
+
+.para{
+float:none;
+text-align: center;
+font-family: "Times New Roman";
+font-size: large;
+font-style: italic;
+color: #ffffff;
+}
+
+.foo{
+background-color: #009AC8;
+float:none;
+text-align: center;
+font-family: "Times New Roman";
+font-size: large;
+font-style: italic;
+color: #ffffff;
+margin-top: 50px;
+}
+
+.foo p{
+margin-top: 10px;
+
+}
+
+
+
+
+
+
 
 .form{
-    margin-top: 50px;
-    margin-right: 500px;
-    margin-left: 500px;
+margin-top: 50px;
+margin-right: 500px;
+margin-left: 500px;
 
 }
 
 
 .rech{
-    background-color:#F2F2F2;
+background-color:#F2F2F2;
 }
 
 .lab{
-    color: #009AC8 ;
-    font-family: "Times New Roman";
-    font-size: large;
-    font-style: italic;
+color: #009AC8 ;
+font-family: "Times New Roman";
+font-size: large;
+font-style: italic;
 
 }
 
 .btn{
-    margin-left: 50px;
-    border: 2px solid #009AC8;
+margin-left: 50px;
+border: 2px solid #009AC8;
     border-radius: 5px;
     margin-top: 10px;
-
-
 }
 
+
 .form-control{
-    border: 2px solid #009AC8;
+border: 2px solid #009AC8;
     border-radius: 5px;
 
 
 }
 
 .btn-default{
-    margin-top: 180px;
-    margin-left: 700px
+margin-top: 180px;
+margin-left: 700px
 }
 
 
 h1{
-    color: #009AC8 ;
-    font-family: "Times New Roman";
-    font-style: italic;
-    margin-top: 100px;
-    margin-right: px;
-    margin-left:500px;
+color: #009AC8 ;
+font-family: "Times New Roman";
+font-style: italic;
+margin-top: 100px;
+margin-right: px;
+margin-left:500px;
 }
